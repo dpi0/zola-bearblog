@@ -1,20 +1,18 @@
 # Zola ʕ•ᴥ•ʔ Bear Blog
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/121b53ce-c913-4604-9179-eb3cca31cd2c/deploy-status)](https://app.netlify.com/sites/zola-bearblog/deploys)
+
 🧸 A [Zola](https://www.getzola.org/)-theme based on [Bear Blog](https://bearblog.dev).
 
 > Free, no-nonsense, super-fast blogging.
 
 ## Demo
 
-For a current & working demo of this theme, please check out https://alanpearce.codeberg.page/zola-bearblog/ 🎯.
+For a current & working demo of this theme, please check out <https://zola-bearblog.netlify.app/> 🎯.
 
-## Screenshots
+## Screenshot
 
-⬜️ [Light][light-screenshot]
-![light mode screenshot][light-screenshot]
-
-⬛️ [Dark][dark-screenshot]
-![dark mode screenshot][dark-screenshot]
+![Screenshot][screenshot]
 
 When the user's browser is running »dark mode«, the dark color scheme will be used automatically. The default is the light/white color scheme. Check out the [`style.html`](https://codeberg.org/alanpearce/zola-bearblog/src/branch/main/templates/style.html)-file for the implementation.
 
@@ -30,6 +28,12 @@ Then, adjust the `config.toml` as detailed below.
 
 For more information, read the official [setup guide][zola-setup-guide] of Zola.
 
+Alternatively, you can quickly deploy a copy of the theme site to Netlify using this button:
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://gitlab.com/alanpearce/zola-bearblog)
+
+(Note that this method makes it harder to keep up-to-date with theme updates, which might be necessary for newer versions of Zola.)
+
 ## Adjust configuration / config.toml
 
 Please check out the included [config.toml](https://codeberg.org/alanpearce/zola-bearblog/src/branch/main/config.toml)
@@ -41,6 +45,10 @@ Please check out the included [config.toml](https://codeberg.org/alanpearce/zola
 Create an array in `extra` with a key of `main_menu`. `url` is passed to [`get_url`](https://www.getzola.org/documentation/templates/overview/#get-url)
 
 ```toml
+[[extra.main_menu]]
+name = "Home"
+url = "/"
+
 [[extra.main_menu]]
 name = "Bear"
 url = "@/bear.md"
@@ -65,6 +73,29 @@ The contents of the `index`-page may be changed by editing your `content/_index.
 
 Add a `custom_head.html`-file to your `templates/`-directory. In there you may add a `<style>`-tag, *or* you may add a `<link>`-tag referencing your own `custom.css` (in case you prefer to have a separate `.css`-file). Check out the [`style.html`](https://codeberg.org/alanpearce/zola-bearblog/src/branch/main/templates/style.html)-file to find out which CSS-styles are applied by default.
 
+### Table of contents
+
+Table of contents are not rendered by default. To render them, set `extra.table_of_contents.show = true` in `config.toml`.
+
+The table of contents is rendered inside a `details` element.
+If you want the section to be collapsed on page load, set `extra.table_of_contents.visible_on_load = false`.
+This defaults to `true`.
+
+In addition, `extra.table_of_contents.max_level` can limit the maximum level of headers to show.
+To show only `h1`s, set `max_level = 1`, to show `h1`s and `h2`s, set `max_level = 2`, and so on.
+By default, `max_level` is set to 6, so all headers on the page are shown.
+
+Below is an example of how to configure the table of contents in `config.toml`.
+
+```toml
+[extra.table_of_contents]
+show = true
+max_level = 2
+visible_on_load = false
+```
+
+It can also be toggled on page-by-page basis. Add `extra.hide_table_of_contents = true` to the page's frontmatter to hide the table of contents for that specific page.
+
 ## Issues / Feedback / Contributing
 Please use [Codeberg issues](https://codeberg.org/alanpearce/zola-bearblog/issues) and [Pull Requests](https://codeberg.org/alanpearce/zola-bearblog/pulls).
 
@@ -76,5 +107,4 @@ A special thank you goes out to [Herman](https://herman.bearblog.dev), for creat
 [MIT License](http://en.wikipedia.org/wiki/MIT_License) © [Alan Pearce](https://www.alanpearce.eu/)
 
 [zola-setup-guide]: https://www.getzola.org/documentation/getting-started/installation/
-[light-screenshot]: https://codeberg.org/alanpearce/zola-bearblog/raw/branch/main/screenshot.png
-[dark-screenshot]: https://codeberg.org/alanpearce/zola-bearblog/raw/branch/main/screenshot-dark.png
+[screenshot]: https://codeberg.org/alanpearce/zola-bearblog/raw/branch/main/screenshot.png

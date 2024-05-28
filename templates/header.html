@@ -1,6 +1,7 @@
 <header>
-  <a href="{{ config.base_url }}" class="title">
-    <h2>{{ config.title }}</h2>
+  {% include "language_switcher.html" %}
+  <a href="{{ get_url(path="@/_index.md", lang=lang) }}" class="title">
+    <h1>{{ config.title }}</h1>
   </a>
   <nav>
     {% include "nav.html" %}
