@@ -1,0 +1,29 @@
+version: "3"
+
+vars:
+  INTERFACE: 0.0.0.0
+  BASE_URL: 192.168.1.80
+  PORT: 1234
+  OUTPUT_DIR: public
+
+tasks:
+  build:
+    desc: Build the Zola site
+    cmds:
+      - zola build --output-dir {{.OUTPUT_DIR}} --base-url {{.BASE_URL}}
+
+  serve:
+    desc: Serve the Zola site with custom options
+    deps: [build]
+    cmds:
+      - zola serve --interface {{.INTERFACE}} --base-url {{.BASE_URL}} --port {{.PORT}}
+
+  clean:
+    desc: Clean the output directory
+    cmds:
+      - trash {{.OUTPUT_DIR}}
+
+  check:
+    desc: Check the Zola site for errors
+    cmds:
+      - zola check
