@@ -1,4 +1,4 @@
-title = "Zola ʕ•ᴥ•ʔ Bear Blog"
+title = "d.log"
 base_url = "/"
 description = "A Zola-theme based on Bear Blog."
 
@@ -25,31 +25,24 @@ language = "language"
 site = "site"
 
 [markdown]
-# Whether to do syntax highlighting
-# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
-highlight_code = false
+highlight_code = true
+highlight_theme = "gruvbox-dark"
+render_emoji = true
+smart_punctuation = true
 
 [extra]
-date_format = "%Y-%m-%d"
+date_format = "%d %b, %Y"
 webserver_sends_csp_headers = true
 
 [extra.table_of_contents]
 show = true
 max_level = 2
-visible_on_load = true
-
-[[extra.main_menu]]
-name = "Home"
-url = "@/_index.md"
-
-[[extra.main_menu]]
-name = "Bear"
-url = "@/bear.md"
-
-[[extra.main_menu]]
-name = "Zola"
-url = "@/zola.md"
+visible_on_load = false
 
 [[extra.main_menu]]
 name = "Blog"
 url = "@/blog/_index.md"
+
+[[extra.main_menu]]
+name = "Contact"
+url = "@/contact.md"
