@@ -6,23 +6,30 @@
   --background-color: #fff;
   --heading-color: #222;
   --text-color: #444;
-  --link-color: #3273dc;
-  --visited-color: #8b6fcb;
-  --code-background-color: #f2f2f2;
-  --code-color: #222;
+  --link-color: #640f43;
+  --visited-color: #333333;
+  --inline-code-background-color: #ddd;
+  --codeblock-color: #fff;
+  --inline-code-color: #121212;
   --blockquote-color: #222;
+  --selection-background: #360122;
+  --selection-color: var(--background-color);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background-color: #01242e;
+    --background-color: #121212;
     --heading-color: #eee;
     --text-color: #ddd;
-    --link-color: #8cc2dd;
-    --visited-color: #8b6fcb;
-    --code-background-color: #000;
-    --code-color: #ddd;
+    --link-color: #d28694;
+    --visited-color: #878787;
+    --codeblock-background-color: #0a0a0a;
+    --codeblock-color: #eee;
+    --inline-code-background-color: #32302f;
+    --inline-code-color: #fbf1c7;
     --blockquote-color: #ccc;
+    --selection-background: #ffd1da;
+    --selection-color: var(--background-color);
   }
 }
 
@@ -35,8 +42,8 @@ body {
   text-align: left;
   background-color: var(--background-color);
   word-wrap: break-word;
+  line-height: 1.8;
   overflow-wrap: break-word;
-  line-height: 1.5;
   color: var(--text-color);
 }
 
@@ -48,6 +55,39 @@ h5,
 h6 {
   font-family: var(--font-main);
   color: var(--heading-color);
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+p {
+  line-height: 1.8;
+}
+
+.header-with-permalink {
+  position: relative;
+  text-decoration: none;
+}
+
+.header-permalink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.header-permalink:hover {
+  text-decoration: none;
+}
+
+::selection {
+  background-color: var(--selection-background);
+  color: var(--selection-color);
+}
+
+::-moz-selection {
+  background-color: var(--selection-background);
+  color: var(--selection-color);
 }
 
 a {
@@ -96,8 +136,8 @@ img {
 }
 
 pre code {
-  background-color: var(--code-background-color);
-  color: var(--code-color);
+  background-color: var(--codeblock-background-color);
+  color: var(--codeblock-color);
   display: block;
   padding: 20px;
   white-space: pre-wrap;
@@ -108,8 +148,8 @@ pre code {
 code {
   font-family: monospace;
   padding: 2px;
-  background-color: var(--code-background-color);
-  color: var(--code-color);
+  background-color: var(--inline-code-background-color);
+  color: var(--inline-code-color);
   border-radius: 3px;
 }
 
@@ -160,6 +200,7 @@ ul.blog-posts li {
 
 ul.blog-posts li span {
   flex: 0 0 130px;
+  margin-bottom: 15px;
 }
 
 ul.blog-posts li a:visited {
