@@ -9,7 +9,7 @@
   --text-color: #444;
   --link-color: var(--accent-color);
   --visited-color: #333333;
-  --inline-code-background-color: #ddd;
+  --inline-code-background-color: #eee;
   /* --codeblock-color: #fff; */
   --inline-code-color: #121212;
   --blockquote-color: #222;
@@ -27,8 +27,8 @@
     --visited-color: #878787;
     --codeblock-background-color: #0a0a0a;
     /* --codeblock-color: #eee; */
-    --inline-code-background-color: #32302f;
-    --inline-code-color: #fbf1c7;
+    --inline-code-background-color: #222;
+    --inline-code-color: #d0f1ff;
     --blockquote-color: #ccc;
     --selection-background: var(--accent-color);
     --selection-color: var(--background-color);
