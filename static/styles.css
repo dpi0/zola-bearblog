@@ -5,14 +5,15 @@
   --font-scale: 1em;
   --background-color: #fff;
   --heading-color: #222;
+  --accent-color: #006be4;
   --text-color: #444;
-  --link-color: #640f43;
+  --link-color: var(--accent-color);
   --visited-color: #333333;
   --inline-code-background-color: #ddd;
-  --codeblock-color: #fff;
+  /* --codeblock-color: #fff; */
   --inline-code-color: #121212;
   --blockquote-color: #222;
-  --selection-background: #360122;
+  --selection-background: var(--accent-color);
   --selection-color: var(--background-color);
 }
 
@@ -20,15 +21,16 @@
   :root {
     --background-color: #121212;
     --heading-color: #eee;
+    --accent-color: #60cfff;
     --text-color: #ddd;
-    --link-color: #d28694;
+    --link-color: var(--accent-color);
     --visited-color: #878787;
     --codeblock-background-color: #0a0a0a;
-    --codeblock-color: #eee;
+    /* --codeblock-color: #eee; */
     --inline-code-background-color: #32302f;
     --inline-code-color: #fbf1c7;
     --blockquote-color: #ccc;
-    --selection-background: #ffd1da;
+    --selection-background: var(--accent-color);
     --selection-color: var(--background-color);
   }
 }
@@ -140,7 +142,6 @@ pre code {
   color: var(--codeblock-color);
   display: block;
   padding: 20px;
-  white-space: pre-wrap;
   font-size: 0.875rem;
   overflow-x: auto;
 }
@@ -203,9 +204,9 @@ ul.blog-posts li span {
   margin-bottom: 15px;
 }
 
-ul.blog-posts li a:visited {
+/* ul.blog-posts li a:visited {
   color: var(--visited-color);
-}
+} */
 
 .tags {
   font-size: smaller;

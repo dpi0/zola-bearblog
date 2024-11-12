@@ -26,7 +26,8 @@ site = "site"
 
 [markdown]
 highlight_code = true
-highlight_theme = "gruvbox-dark"
+# https://www.getzola.org/documentation/getting-started/configuration/#syntax-highlighting
+highlight_theme = "agola-dark"
 render_emoji = true
 smart_punctuation = true
 
