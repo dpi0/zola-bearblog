@@ -1,0 +1,34 @@
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const navbarLinks = document.querySelectorAll(".navbar-link");
+
+    // Get the current URL path, normalized to remove trailing slashes
+    const currentPath =
+      window.location.pathname.replace(/\/+$/, "").toLowerCase() || "/";
+
+    console.log("Current Path:", currentPath); // Debugging log
+
+    navbarLinks.forEach((link) => {
+      // Extract and normalize the link's path
+      const linkPath =
+        new URL(link.href).pathname.replace(/\/+$/, "").toLowerCase() || "/";
+
+      console.log(
+        `Comparing Link Path: ${linkPath} with Current Path: ${currentPath}`
+      ); // Debugging log
+
+      // Exact match for home link
+      if (linkPath === "/" && currentPath === "/") {
+        link.classList.add("active");
+      }
+      // Starts-with matching for other links
+      else if (linkPath !== "/" && currentPath.startsWith(linkPath)) {
+        link.classList.add("active");
+      }
+      // Remove active class if no match
+      else {
+        link.classList.remove("active");
+      }
+    });
+  });
+</script>

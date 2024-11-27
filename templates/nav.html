@@ -1,3 +1,4 @@
+<div class="navbar">
 {%- set current_lang = config.default_language %}
 {%- if page %}
   {%- set current_lang = page.lang %}
@@ -13,9 +14,10 @@
       {%- set title = item[language_key] %}
     {%- endif %}
     {%- if item.url is matching("https?://") %}
-      <a href="{{ item.url }}">{{ title }}</a>
+      <a href="{{ item.url }}" class="navbar-link">{{ title }}</a>
     {%- else %}
-      <a href="{{ get_url(path=item.url, lang=lang )}}">{{ title }}</a>
+      <a href="{{ get_url(path=item.url, lang=lang )}}" class="navbar-link">{{ title }}</a>
     {%- endif %}
   {%- endfor %}
 {%- endif -%}
+</div>
