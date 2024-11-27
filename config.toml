@@ -39,17 +39,21 @@ max_level = 2
 visible_on_load = true
 
 [[extra.main_menu]]
-name = "Home"
+name = "home"
 url = "@/_index.md"
 
-[[extra.main_menu]]
-name = "Bear"
-url = "@/bear.md"
+# [[extra.main_menu]]
+# name = "bear"
+# url = "@/bear.md"
+
+# [[extra.main_menu]]
+# name = "zola"
+# url = "@/zola.md"
 
 [[extra.main_menu]]
-name = "Zola"
-url = "@/zola.md"
+name = "writings"
+url = "@/writings/_index.md"
 
-[[extra.main_menu]]
-name = "Blog"
-url = "@/blog/_index.md"
+# [[extra.main_menu]]
+# name = "thoughts"
+# url = "@/thoughts/_index.md"
