@@ -10,7 +10,7 @@ tasks:
   build:
     desc: Build the Zola site
     cmds:
-      - zola build --output-dir {{.OUTPUT_DIR}} --base-url {{.BASE_URL}}
+      - zola build --output-dir {{.OUTPUT_DIR}} --base-url {{.BASE_URL}} --force
 
   serve:
     desc: Serve the Zola site with custom options
