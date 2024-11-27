@@ -8,15 +8,14 @@
         <a href="{{ get_url(path="@/blog/_index.md", lang=lang) }}">{{ trans(key="remove_filter", lang=lang) }}</a>
       </small>
     {%- endif %}
+    <h1>{{ section.title }}</h1>
     <ul class="blog-posts">
       {%- for page in section.pages | sort(attribute="date") | reverse %}
         <li>
           <span>
-            <i>
               <time datetime="{{ page.date | date(format='%+') }}" pubdate>
                 {{ page.date | date(format=config.extra.date_format) }}
               </time>
-            </i>
           </span>
           <a href="{{ page.permalink }}">{{ page.title }}</a>
         </li>
