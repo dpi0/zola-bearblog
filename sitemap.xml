@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>/</loc>
+    </url>
+    <url>
+        <loc>/bear/</loc>
+    </url>
+    <url>
+        <loc>/categories/</loc>
+    </url>
+    <url>
+        <loc>/tags/</loc>
+    </url>
+    <url>
+        <loc>/tags/markdown/</loc>
+    </url>
+    <url>
+        <loc>/tags/syntax/</loc>
+    </url>
+    <url>
+        <loc>/writings/</loc>
+    </url>
+    <url>
+        <loc>/writings/markdown-syntax/</loc>
+        <lastmod>2020-01-03</lastmod>
+    </url>
+    <url>
+        <loc>/zola/</loc>
+    </url>
+</urlset>
