@@ -262,6 +262,7 @@ ul.blog-posts li {
 
 ul.blog-posts li a {
   text-decoration: none;
+  background-color: var(--bg);
 }
 
 ul.blog-posts li a:hover {
