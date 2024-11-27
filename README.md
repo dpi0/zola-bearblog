@@ -63,7 +63,7 @@ url = "@/zola.md"
 
 [[extra.main_menu]]
 name = "Blog"
-url = "@/blog/_index.md"
+url = "@/writings/_index.md"
 ```
 
 ### Adding / editing content

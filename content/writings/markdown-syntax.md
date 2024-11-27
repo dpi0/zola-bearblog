@@ -1,5 +1,5 @@
 +++
-title = "Markdown Syntax Guide"
+title = "My First Post"
 date = "2020-01-03"
 description = "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 taxonomies.tags = [
