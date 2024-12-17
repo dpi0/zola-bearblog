@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zola | dpi0&#x27;s space</title>
+  <meta name="title" content="Zola">
+<meta name="description" content="a space for dpi0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="stylesheet" href="/styles.css"><script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const navbarLinks = document.querySelectorAll(".navbar-link");
+
+    // Get the current URL path, normalized to remove trailing slashes
+    const currentPath =
+      window.location.pathname.replace(/\/+$/, "").toLowerCase() || "/";
+
+    console.log("Current Path:", currentPath); // Debugging log
+
+    navbarLinks.forEach((link) => {
+      // Extract and normalize the link's path
+      const linkPath =
+        new URL(link.href).pathname.replace(/\/+$/, "").toLowerCase() || "/";
+
+      console.log(
+        `Comparing Link Path: ${linkPath} with Current Path: ${currentPath}`
+      ); // Debugging log
+
+      // Exact match for home link
+      if (linkPath === "/" && currentPath === "/") {
+        link.classList.add("active");
+      }
+      // Starts-with matching for other links
+      else if (linkPath !== "/" && currentPath.startsWith(linkPath)) {
+        link.classList.add("active");
+      }
+      // Remove active class if no match
+      else {
+        link.classList.remove("active");
+      }
+    });
+  });
+</script>
+
+</head>
+<body>
+  <header>
+  <nav aria-label="site"><div class="navbar">
+      <a href="/" class="navbar-link">home</a>
+      <a href="/writings/" class="navbar-link">writings</a></div>
+  </nav>
+</header>
+<h1>Zola</h1>
+  <main>
+    <h2 id="no-dependencies">No dependencies</h2>
+<p>Zola comes as a single executable with Sass compilation, syntax
+highlighting, table of contents and many other features that
+traditionally require setting up a dev environment or adding some
+JavaScript libraries to your site.</p>
+<h2 id="blazing-fast">Blazing fast</h2>
+<p>The average site will be generated in less than a second, including
+Sass compilation and syntax highlighting.</p>
+<h2 id="scalable">Scalable</h2>
+<p>Zola renders your whole site as static files, making it trivial to
+handle any kind of traffic you will throw at it at no cost without
+having to worry about managing a server or a database.</p>
+<h2 id="easy-to-use">Easy to use</h2>
+<p>From the CLI to the template engine, everything is designed to be
+intuitive. Don’t take my word for it though, look at the documentation
+and see for yourself.</p>
+<h2 id="flexible">Flexible</h2>
+<p>Zola gets out of your way so you can focus on your content, be it a
+blog, a knowledge base, a landing page or a combination of them.</p>
+<h2 id="augmented-markdown">Augmented Markdown</h2>
+<p>Zola comes with shortcodes and internal links to make it easier to
+write your content.</p>
+
+  </main>
+  <p>
+  </p>
+<footer>
+  © 2024 <a href="https://github.com/dpi0">dpi0</a><br /> Made with
+  <a href="https://codeberg.org/alanpearce/zola-bearblog">Zola ʕ•ᴥ•ʔ Bear</a>
+</footer>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    Lightense("img.lightense");
+  });
+
+  function enableKeyBinds() {
+    document.addEventListener("keydown", (event) => {
+      switch (event.key) {
+        case "j":
+          window.scrollBy(0, 100); // scroll down by 100px
+          break;
+        case "k":
+          window.scrollBy(0, -100); // scroll up by 100px
+          break;
+        case "p":
+          window.scrollTo(0, 0); // scroll to top
+          break;
+        case "n":
+          window.scrollTo(0, document.body.scrollHeight); // scroll to bottom
+          break;
+        case "g":
+          window.location.href = "/"; // go to root
+          break;
+        case "b":
+          window.location.href = "/blog"; // go to blog
+          break;
+        case "c":
+          window.location.href = "/contact"; // go to contact
+          break;
+        case "r":
+          window.location.reload(); // refresh the page
+          break;
+      }
+    });
+
+    function navigateToPost(selector) {
+      const linkElement = document.querySelector(selector);
+      if (linkElement) {
+        window.location.href = linkElement.href;
+      }
+    }
+  }
+
+  function enablePermalinks() {
+    document.addEventListener("DOMContentLoaded", function () {
+      const headers = document.querySelectorAll("h1, h2, h3, h4");
+
+      headers.forEach((header) => {
+        const id = header.id;
+        if (id) {
+          // Create a new anchor element
+          const link = document.createElement("a");
+          link.href = `#${id}`;
+          link.className = "header-permalink";
+          link.setAttribute("title", "Permalink");
+
+          // Move the header's content inside the anchor element
+          while (header.firstChild) {
+            link.appendChild(header.firstChild);
+          }
+
+          // Replace the header's content with the anchor element
+          header.appendChild(link);
+          header.classList.add("header-with-permalink");
+        }
+      });
+    });
+  }
+
+  function enableBackToTop() {
+    document.addEventListener("DOMContentLoaded", function () {
+      const backToTopButton = document.getElementById("backToTop");
+
+      window.onscroll = function () {
+        if (window.scrollY > 1200) {
+          backToTopButton.style.display = "block";
+        } else {
+          backToTopButton.style.display = "none";
+        }
+      };
+
+      backToTopButton.addEventListener("click", function () {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+    });
+  }
+
+  enableKeyBinds();
+  enablePermalinks();
+  // enableBackToTop();
+</script>
+
+</body>
+</html>

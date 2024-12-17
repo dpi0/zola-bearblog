@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404</title>
+  <meta name="title" content="dpi0&#x27;s space">
+<meta name="description" content="a space for dpi0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="stylesheet" href="/styles.css"><script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const navbarLinks = document.querySelectorAll(".navbar-link");
+
+    // Get the current URL path, normalized to remove trailing slashes
+    const currentPath =
+      window.location.pathname.replace(/\/+$/, "").toLowerCase() || "/";
+
+    console.log("Current Path:", currentPath); // Debugging log
+
+    navbarLinks.forEach((link) => {
+      // Extract and normalize the link's path
+      const linkPath =
+        new URL(link.href).pathname.replace(/\/+$/, "").toLowerCase() || "/";
+
+      console.log(
+        `Comparing Link Path: ${linkPath} with Current Path: ${currentPath}`
+      ); // Debugging log
+
+      // Exact match for home link
+      if (linkPath === "/" && currentPath === "/") {
+        link.classList.add("active");
+      }
+      // Starts-with matching for other links
+      else if (linkPath !== "/" && currentPath.startsWith(linkPath)) {
+        link.classList.add("active");
+      }
+      // Remove active class if no match
+      else {
+        link.classList.remove("active");
+      }
+    });
+  });
+</script>
+
+</head>
+<body>
+  <header>
+  <nav aria-label="site"><div class="navbar">
+      <a href="/" class="navbar-link">home</a>
+      <a href="/writings/" class="navbar-link">writings</a></div>
+  </nav>
+</header>
+
+  <h1>404</h1>
+  <h2>ʕノ•ᴥ•ʔノ ︵ ┻━┻</h2>
+<footer>
+  © 2024 <a href="https://github.com/dpi0">dpi0</a><br /> Made with
+  <a href="https://codeberg.org/alanpearce/zola-bearblog">Zola ʕ•ᴥ•ʔ Bear</a>
+</footer>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    Lightense("img.lightense");
+  });
+
+  function enableKeyBinds() {
+    document.addEventListener("keydown", (event) => {
+      switch (event.key) {
+        case "j":
+          window.scrollBy(0, 100); // scroll down by 100px
+          break;
+        case "k":
+          window.scrollBy(0, -100); // scroll up by 100px
+          break;
+        case "p":
+          window.scrollTo(0, 0); // scroll to top
+          break;
+        case "n":
+          window.scrollTo(0, document.body.scrollHeight); // scroll to bottom
+          break;
+        case "g":
+          window.location.href = "/"; // go to root
+          break;
+        case "b":
+          window.location.href = "/blog"; // go to blog
+          break;
+        case "c":
+          window.location.href = "/contact"; // go to contact
+          break;
+        case "r":
+          window.location.reload(); // refresh the page
+          break;
+      }
+    });
+
+    function navigateToPost(selector) {
+      const linkElement = document.querySelector(selector);
+      if (linkElement) {
+        window.location.href = linkElement.href;
+      }
+    }
+  }
+
+  function enablePermalinks() {
+    document.addEventListener("DOMContentLoaded", function () {
+      const headers = document.querySelectorAll("h1, h2, h3, h4");
+
+      headers.forEach((header) => {
+        const id = header.id;
+        if (id) {
+          // Create a new anchor element
+          const link = document.createElement("a");
+          link.href = `#${id}`;
+          link.className = "header-permalink";
+          link.setAttribute("title", "Permalink");
+
+          // Move the header's content inside the anchor element
+          while (header.firstChild) {
+            link.appendChild(header.firstChild);
+          }
+
+          // Replace the header's content with the anchor element
+          header.appendChild(link);
+          header.classList.add("header-with-permalink");
+        }
+      });
+    });
+  }
+
+  function enableBackToTop() {
+    document.addEventListener("DOMContentLoaded", function () {
+      const backToTopButton = document.getElementById("backToTop");
+
+      window.onscroll = function () {
+        if (window.scrollY > 1200) {
+          backToTopButton.style.display = "block";
+        } else {
+          backToTopButton.style.display = "none";
+        }
+      };
+
+      backToTopButton.addEventListener("click", function () {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+    });
+  }
+
+  enableKeyBinds();
+  enablePermalinks();
+  // enableBackToTop();
+</script>
+
+</body>
+</html>
