@@ -239,17 +239,6 @@ footer {
   width: auto !important;
 }
 
-.highlight,
-.code {
-  padding: 1px 15px;
-  background-color: var(--code-bg);
-  color: var(--code-text);
-  border-radius: 3px;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  overflow-x: auto;
-}
-
 /* blog post list */
 ul.blog-posts {
   list-style-type: none;
